@@ -8,7 +8,7 @@ class Handler implements URLHandler {
     ArrayList<String> data = new ArrayList<String>();
     public String handleRequest(URI url) {
         if (url.getPath().equals("/")) {
-            return String.format("Shambhavi's search engine");
+            return String.format("Shambhavi's String displayer");
         } 
         
         else {
@@ -17,7 +17,9 @@ class Handler implements URLHandler {
                 String[] parameters = url.getQuery().split("=");
                 if (parameters[0].equals("s") ) {
                     data.add("\n"+parameters[1]);
-                    return data.toString();
+                    for (String s: data){
+                        return s;
+                    }
                 }
             }
             return "404 Not Found!";
