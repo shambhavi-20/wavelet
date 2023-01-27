@@ -32,7 +32,7 @@ class Handler implements URLHandler {
                 String[] parameters = url.getQuery().split("=");
                 if (parameters[0].equals("s")) {
                     data.add(parameters[1]);
-                    return String.format("Added!");
+                    return String.format("Added!"+parameters[1]);
                 }
             }
             return "404 Not Found!";
