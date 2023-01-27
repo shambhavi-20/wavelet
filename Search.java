@@ -15,7 +15,7 @@ class Handler implements URLHandler {
             String[] parameter = url.getQuery().split("=");
                 if (parameter[0].equals("s")) {
                     for  (int i=0; i<data.size(); i++){
-                        if (data.get(i).contains(parameter[1])){
+                        if (data.get(i).contains(parameter[1]) ){
                             resultList.add(data.get(i));
                         }
                     }
@@ -30,9 +30,15 @@ class Handler implements URLHandler {
             System.out.println("Path: " + url.getPath());
             if (url.getPath().contains("/add")) {
                 String[] parameters = url.getQuery().split("=");
-                if (parameters[0].equals("s")) {
-                    data.add(parameters[1]);
-                    return String.format("Added!"+parameters[1]);
+                if (parameters[0].equals("s") ) {
+                    if (!data.contains(parameters[1])){
+                        data.add(parameters[1]);
+                        return String.format("Added! "+parameters[1]);
+                    }
+                
+                    else{
+                        return "already add";
+                    }
                 }
             }
             return "404 Not Found!";
