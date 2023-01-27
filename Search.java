@@ -37,7 +37,7 @@ class Handler implements URLHandler {
                     }
                 
                     else{
-                        return "already add";
+                        return "Already added";
                     }
                 }
             }
